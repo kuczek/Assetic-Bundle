@@ -1,0 +1,7 @@
+parameters:
+#    hexmedia_assetic.example.class: Hexmedia\AsseticBundle\Example
+
+services:
+#    hexmedia_assetic.example:
+#        class: %hexmedia_assetic.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

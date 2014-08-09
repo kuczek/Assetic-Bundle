@@ -1,0 +1,3 @@
+hexmedia_assetic_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: HexmediaAsseticBundle:Default:index }
