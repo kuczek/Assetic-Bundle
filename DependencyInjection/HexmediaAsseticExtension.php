@@ -24,5 +24,8 @@ class HexmediaAsseticExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $container->setParameter('hex.assetic.read_from', $config['read_from'] ? $config['read_from'] : $this->getParameter("assetic.read_from"));
+        $container->setParameter('hex.assetic.write_to', $config['write_to'] ? $config['write_to'] : $this->getParameter("assetic.write_to"));
     }
 }
