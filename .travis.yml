@@ -17,5 +17,5 @@ matrix:
         - php: 5.3.3
 
 before_script:
-    - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev install
+    - COMPOSER_ROOT_VERSION=dev-master composer --no-dev install
     - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "5.3.3" ]; then phpunit --self-update; fi;'
