@@ -1,0 +1,9 @@
+#BUILD
+/vendor/*
+/build/*
+/cache.properties
+/bin
+
+#IDES
+/nbproject/private/
+/.idea

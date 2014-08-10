@@ -1,0 +1,38 @@
+{
+	"name": "hexmedia/assetic-bundle",
+	"type": "symfony-bundle",
+	"description": "Additional assetic functions",
+	"keywords": ["assetic", "static", "cdn", "images"],
+	"homepage": "http://www.hexmedia.pl/symfony2/assetic-bundle",
+	"license": "GPLv2",
+	"authors": [
+		{
+			"name": "Krystian Kuczek",
+			"email": "krystian@hexmedia.pl",
+			"homepage": "http://www.hexmedia.pl"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.3.4",
+		"symfony/framework-bundle": ">=2.0",
+		"twig/twig": ">=1.13"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4.1",
+		"symfony/assetic-bundle": "~2.3",
+		"symfony/dependency-injection": "~2.3",
+		"symfony/filesystem": "~2.3",
+		"symfony/templating": "~2.3",
+		"mikey179/vfsStream": "~1.3"
+	},
+	"autoload": {
+		"psr-0": {
+			"Hexmedia\\AsseticBundle": ""
+		}
+	},
+	"target-dir": "Hexmedia/AsseticBundle",
+	"config": {
+		"bin-dir": "bin"
+	}
+}
