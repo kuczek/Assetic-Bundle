@@ -1,7 +1,10 @@
 parameters:
-#    hexmedia_assetic.example.class: Hexmedia\AsseticBundle\Example
+    hexmedia.assetic.filter.assetsurl.class: Hexmedia\AsseticBundle\Filter\AssetsUrl
 
 services:
-#    hexmedia_assetic.example:
-#        class: %hexmedia_assetic.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    hexmedia.assetic.filter.assetsurl:
+        class: %hexmedia.assetic.filter.assetsurl.class%
+        arguments:
+            - "@service_container"
+        tags:
+            -	{ name: assetic.filter, alias: assetsurl }
