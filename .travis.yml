@@ -23,3 +23,10 @@ before_script:
     - composer require symfony/symfony:${SYMFONY_VERSION} ${DEV}
     - composer install
     - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "5.3.3" ]; then phpunit --self-update; fi;'
+
+addons:
+    code_climate:
+        repo_token: 83de4f940c6760d66c95fc929e0950e89ec9edb007f356915720c613fa621b2b 
+
+after_script:
+    - php bin/test-reporter
