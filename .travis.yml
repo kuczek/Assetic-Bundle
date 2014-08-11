@@ -8,21 +8,17 @@ php:
     - hhvm
     - hhvm-nightly
 
-
 env:
-  - SYMFONY_VERSION=2.3.*
-  - SYMFONY_VERSION=2.4.*
-  - SYMFONY_VERSION=2.5.*
-  - SYMFONY_VERSION=2.6.*@dev
+  - SYMFONY_VERSION=2.3.* DEV=
+  - SYMFONY_VERSION=2.4.* DEV=
+  - SYMFONY_VERSION=2.5.* DEV=
+  - SYMFONY_VERSION=2.6.*@dev DEV=--dev
 
 matrix:
     allow_failures:
         - php: hhvm-nightly
 
 before_script:
-    - composer require symfony/framework-bundle:${SYMFONY_VERSION}
-    - composer require symfony/dependency-injection:${SYMFONY_VERSION}
-    - composer require symfony/filesystem:${SYMFONY_VERSION}
-    - composer require symfony/templating:${SYMFONY_VERSION}
+    - composer require symfony/symfony:${SYMFONY_VERSION} ${DEV}
     - composer install
     - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "5.3.3" ]; then phpunit --self-update; fi;'
