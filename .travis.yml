@@ -22,5 +22,5 @@ matrix:
 
 before_script:
     - composer require symfony/framework-bundle:${SYMFONY_VERSION}
-    - composer install --dev
+    - composer install 
     - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "5.3.3" ]; then phpunit --self-update; fi;'

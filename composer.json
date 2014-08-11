@@ -34,5 +34,6 @@
 	"target-dir": "Hexmedia/AsseticBundle",
 	"config": {
 		"bin-dir": "bin"
-	}
+	},
+	"prefer-stable": true
 }
