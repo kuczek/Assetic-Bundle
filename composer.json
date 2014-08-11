@@ -16,7 +16,8 @@
 	"require": {
 		"php": ">=5.3.4",
 		"symfony/symfony": ">=2.3",
-		"twig/twig": ">=1.13"
+		"twig/twig": ">=1.13",
+		"kriswallsmith/assetic": ">=1.1"
 	},
 	"require-dev": {
 		"phpunit/phpunit": ">=4.1",
