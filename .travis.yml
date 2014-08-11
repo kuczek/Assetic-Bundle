@@ -2,7 +2,6 @@ language: php
 
 php:
     - 5.3
-    - 5.3.3
     - 5.3.4
     - 5.4
     - 5.5
@@ -14,7 +13,6 @@ php:
 matrix:
     allow_failures:
         - php: hhvm-nightly
-        - php: 5.3.3
 
 before_script:
     - COMPOSER_ROOT_VERSION=dev-master composer --no-dev install
