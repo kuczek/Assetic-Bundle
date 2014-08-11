@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\FrameworkBundle\Command;
+namespace Hexmedia\AsseticBundle\Command;
 
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
@@ -36,6 +37,7 @@ class AssetsInstallCommand extends ContainerAwareCommand
             ))
             ->addOption('symlink', null, InputOption::VALUE_NONE, 'Symlinks the assets instead of copying it')
             ->addOption('relative', null, InputOption::VALUE_NONE, 'Make relative symlinks')
+//            ->addOption('exclude-dirs', null, InputOption::VALUE_NONE, "Exclude some public dirs, comma separated.")
             ->setDescription('Installs bundles web assets under defined public directory or cdn.')
             ->setHelp(<<<EOT
 The <info>%command.name%</info> command installs bundle assets into a given
@@ -56,8 +58,7 @@ To make symlink relative, add the <info>--relative</info> option:
 <info>php %command.full_name% web --symlink --relative</info>
 
 EOT
-            )
-        ;
+            );
     }
 
     /**
@@ -87,14 +88,20 @@ EOT
         $filesystem = $this->getContainer()->get('filesystem');
 
         // Create the bundles directory otherwise symlink will fail.
-        $bundlesDir = $targetArg.'/bundles/';
+        $bundlesDir = $targetArg . '/bundles/';
         $filesystem->mkdir($bundlesDir, 0777);
 
         $output->writeln(sprintf('Installing assets as <comment>%s</comment>', $input->getOption('symlink') ? 'symlinks' : 'hard copies'));
 
+//        $excludeDirs = array();
+//
+//        if ($input->getOption('exclude-dirs') !== null) {
+//            $excludeDirs = \array_map(function ($x) { return trim($x); }, \explode(',', $input->getOption('exclude-dirs')));
+//        }
+
         foreach ($this->getContainer()->get('kernel')->getBundles() as $bundle) {
-            if (is_dir($originDir = $bundle->getPath().'/Resources/public')) {
-                $targetDir  = $bundlesDir.preg_replace('/bundle$/', '', strtolower($bundle->getName()));
+            if (is_dir($originDir = $bundle->getPath() . '/Resources/public')) {
+                $targetDir = $bundlesDir . preg_replace('/bundle$/', '', strtolower($bundle->getName()));
 
                 $output->writeln(sprintf('Installing assets for <comment>%s</comment> into <comment>%s</comment>', $bundle->getNamespace(), $targetDir));
 
