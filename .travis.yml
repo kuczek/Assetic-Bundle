@@ -21,6 +21,6 @@ matrix:
         - php: hhvm-nightly
 
 before_script:
-    - COMPOSER_ROOT_VERSION=dev-master composer require symfony/framework-bundle:${SYMFONY_VERSION}
-    - COMPOSER_ROOT_VERSION=dev-master composer install --dev
+    - composer require symfony/framework-bundle:${SYMFONY_VERSION}
+    - composer install --dev
     - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "5.3.3" ]; then phpunit --self-update; fi;'
