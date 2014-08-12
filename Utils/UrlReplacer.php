@@ -71,19 +71,9 @@ class UrlReplacer
 
                 $path = str_replace("//", "/", $path);
 
-                if ($matches['at'] == "@@@") {
-                    return $container->get('kernel')->getRootDir() . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . $path;
-                }
-
-
-                if ($readFrom != null) {
-                    return $readFrom . $matches2['path'];
-                }
-
                 if ($matches['at'] == "@@") {
                     return $container->get('kernel')->getRootDir() . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . $path;
                 }
-
 
                 try {
                     return $this->container->get('templating.helper.assets')->getUrl($path);
