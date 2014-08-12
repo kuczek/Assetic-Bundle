@@ -84,7 +84,7 @@ class UrlReplacerTest extends \PHPUnit_Framework_TestCase
             array('@TestBundle/Resources/public/img/img.png', "../img/img.png", null, true),
             array('@@TestBundle/Resources/public/img/img.png', "vfs:///../web/bundles/img/img.png", null, true),
             array('@HexmediaTestBundle/Resources/public/img/img.png', "http://cdn.hexmedia.pl/bundles/hexmediatest/img/img.png", "http://cdn.hexmedia.pl/", true),
-            array('@@HexmediaTestBundle/Resources/public/img/img.png', "vfs:///../web/bundles/im-g/img.png", "http://cdn.hexmedia.pl/", true),
+            array('@@HexmediaTestBundle/Resources/public/img/img.png', "vfs:///../web/bundles/img/img.png", "http://cdn.hexmedia.pl/", true),
             array('@import "wp.pl";', '@import "wp.pl";', null, false),
             array('@@import "wp.pl";', '@@import "wp.pl";', null, false),
             array('@import "wp.pl";', '@import "wp.pl";', "http://cdn.hexmedia.pl/", false),
