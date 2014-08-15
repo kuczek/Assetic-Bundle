@@ -19,7 +19,7 @@ matrix:
         - php: hhvm-nightly
 
 before_script:
-    - composer require symfony/symfony:${SYMFONY_VERSION} ${DEV} --no-update --no-interaction  
+    - composer require symfony/symfony:${SYMFONY_VERSION} ${DEV} --no-interaction --prefer-dist 
     - composer install --no-interaction --prefer-dist --dev
     - phpunit --self-update
 
